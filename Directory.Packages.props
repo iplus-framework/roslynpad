@@ -1,17 +1,23 @@
 <Project>
+  <!-- iPlus settings and overrides -->
+  <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="$(MSBuildThisFileDirectory)../iPlus/Directory.Packages.props" />
+  <!-- End iPlus settings and overrides -->
+
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
+
   <PropertyGroup>
-    <DotNetExtensionsVersion>9.0.5</DotNetExtensionsVersion>
-    <RoslynVersion>4.14.0</RoslynVersion>
+    <DotNetExtensionsVersion Condition="'$(DotNetExtensionsVersion)' == ''">9.0.5</DotNetExtensionsVersion>
+    <RoslynVersion Condition="'$(RoslynVersion)' == ''">4.14.0</RoslynVersion>
     <!-- https://dev.azure.com/dnceng/public/_artifacts/feed/dotnet-tools/NuGet/Microsoft.CodeAnalysis.LanguageServer.Protocol/ -->
-    <RoslynPrivateVersion>4.14.0-3.25275.7</RoslynPrivateVersion>
-    <AvaloniaVersion>11.3.1</AvaloniaVersion>
-    <NuGetVersion>6.14.0</NuGetVersion>
+    <RoslynPrivateVersion Condition="'$(RoslynPrivateVersion)' == ''">4.14.0-3.25275.7</RoslynPrivateVersion>
+    <AvaloniaVersion Condition="'$(AvaloniaVersion)' == ''">11.3.8</AvaloniaVersion>
+    <NuGetVersion Condition="'$(NuGetVersion)' == ''">6.14.0</NuGetVersion>
   </PropertyGroup>
-  <ItemGroup>
+  
+  <ItemGroup Condition="'$(UseAvaloniaFork)' == 'False'">
     <PackageVersion Include="AvalonEdit" Version="6.3.1.120" />
     <PackageVersion Include="Avalonia.AvaloniaEdit" Version="11.3.0" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
@@ -51,4 +57,5 @@
     <PackageVersion Include="Xunit.StaFact" Version="2.1.7" />
     <PackageVersion Include="xunit.v3" Version="2.0.2" />
   </ItemGroup>
+  
 </Project>

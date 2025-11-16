@@ -1,9 +1,22 @@
 <Project>
+  <!-- iPlus settings and overrides -->
+  <Import Project="../iPlus/build/Avalonia.Build.props" />
+  <!-- End iPlus settings and overrides -->
+
   <PropertyGroup>
     <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    
+    <!--
     <DefaultTargetFramework>net9.0</DefaultTargetFramework>
     <LtsTargetFramework>net8.0</LtsTargetFramework>
     <EarliestSupportedTargetFramework>net8.0</EarliestSupportedTargetFramework>
+    -->
+    <!-- iPlus settings and overrides -->
+    <DefaultTargetFramework>$(AvaloniaBuildFramework)</DefaultTargetFramework>
+    <LtsTargetFramework>$(AvaloniaBuildFramework)</LtsTargetFramework>
+    <EarliestSupportedTargetFramework>$(AvaloniaBuildFramework)</EarliestSupportedTargetFramework>
+    <!-- End iPlus settings and overrides -->
+    
     <UseWPF Condition=" $(MSBuildProjectName.Contains('Windows')) ">true</UseWPF>
     <TargetFramework Condition=" '$(UseWPF)' == 'true' ">$(LtsTargetFramework)-windows</TargetFramework>
     <TargetFramework Condition=" '$(TargetFramework)' == '' and '$(TargetFrameworks)' == '' ">$(DefaultTargetFramework)</TargetFramework>
@@ -50,4 +63,5 @@
     <None Include="$(MSBuildThisFileDirectory)\src\RoslynPad\Resources\RoslynPad.png" Pack="true" PackagePath="\" Visible="false" />
     <None Include="$(MSBuildThisFileDirectory)\docs\packages\README.md" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
+
 </Project>

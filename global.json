@@ -1,9 +1,11 @@
 {
-  "sdk": {
-    "version": "9.0.300"
-  },
-  "msbuild-sdks": {
-    "Microsoft.Build.NoTargets": "3.7.56",
-    "Microsoft.Build.Traversal": "4.1.82"
-  }
+    "sdk": {
+        "version": "9.0.7",
+        "rollForward": "latestMinor",
+        "allowPrerelease": true
+    },
+    "msbuild-sdks": {
+        "Microsoft.Build.NoTargets": "3.7.56",
+        "Microsoft.Build.Traversal": "4.1.82"
+    }
 }

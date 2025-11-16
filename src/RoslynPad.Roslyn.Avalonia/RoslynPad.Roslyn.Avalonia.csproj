@@ -8,9 +8,12 @@
   <ItemGroup>
     <AvaloniaResource Include="**\*.png" Exclude="obj\**" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(UseAvaloniaFork)' == 'False'">
     <PackageReference Include="Avalonia" NoWarn="NU5104" />
   </ItemGroup>
+  <!-- iPlus settings and overrides -->
+  <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="../../../iPlus/build/AvaloniaInclude.props" />
+  <!-- End iPlus settings and overrides --> 
   <ItemGroup>
     <ProjectReference Include="..\RoslynPad.Roslyn\RoslynPad.Roslyn.csproj" />
   </ItemGroup>

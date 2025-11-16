@@ -7,16 +7,24 @@
     <NoWarn>NU5104</NoWarn>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(UseAvaloniaFork)' == 'False'">
     <PackageReference Include="Avalonia" NoWarn="NU5104" />
     <PackageReference Include="Avalonia.AvaloniaEdit" NoWarn="NU5104" />
     <PackageReference Include="System.Reactive.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Reactive.Linq" />
+  </ItemGroup>
+  <!-- iPlus settings and overrides -->
+  <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="../../../iPlus/build/AvaloniaInclude.props" />
+  <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="../../../iPlus/build/AvaloniaEditInclude.props" />
+  <!-- End iPlus settings and overrides -->
+  <ItemGroup>
     <ProjectReference Include="..\RoslynPad.Roslyn.Avalonia\RoslynPad.Roslyn.Avalonia.csproj" />
     <ProjectReference Include="..\RoslynPad.Roslyn\RoslynPad.Roslyn.csproj" />
     <ProjectReference Include="..\RoslynPad.Themes\RoslynPad.Themes.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
     <Compile Include="..\RoslynPad.Editor.Windows\Shared\**\*.cs" Exclude="..\RoslynPad.Editor.Windows\bin\**;..\RoslynPad.Editor.Windows\obj\**">
       <Link>Shared\%(RecursiveDir)%(Filename)%(Extension)</Link>

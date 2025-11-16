@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="../RestoreHelper/RestoreHelper.csproj" Targets="GetLibReferences" PrivateAssets="All" />
   </ItemGroup>
+  
   <Target Name="GetLibReferences" AfterTargets="ResolveFrameworkReferences">
     <MSBuild Projects="@(ProjectReference)" Targets="GetLibReferences">
       <Output ItemName="LibReference" TaskParameter="TargetOutputs" /> 
@@ -17,6 +18,7 @@
       <Content Include="@(LibReference)" PackagePath="lib/$(TargetFramework)" Pack="true" />
     </ItemGroup>
   </Target>
+
   <ItemGroup>
     <PackageReference Include="IgnoresAccessChecksToGenerator" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
