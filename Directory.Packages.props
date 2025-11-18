@@ -10,7 +10,9 @@
 
   <PropertyGroup>
     <DotNetExtensionsVersion Condition="'$(DotNetExtensionsVersion)' == ''">9.0.5</DotNetExtensionsVersion>
-    <RoslynVersion Condition="'$(RoslynVersion)' == ''">4.14.0</RoslynVersion>
+    <!-- Use CodeAnalysisVersion from iPlus when UseAvaloniaFork is True, otherwise use 4.14.0 -->
+    <RoslynVersion Condition="'$(RoslynVersion)' == '' AND '$(UseAvaloniaFork)' == 'True'">$(CodeAnalysisVersion)</RoslynVersion>
+    <RoslynVersion Condition="'$(RoslynVersion)' == '' AND '$(UseAvaloniaFork)' != 'True'">4.14.0</RoslynVersion>
     <!-- https://dev.azure.com/dnceng/public/_artifacts/feed/dotnet-tools/NuGet/Microsoft.CodeAnalysis.LanguageServer.Protocol/ -->
     <RoslynPrivateVersion Condition="'$(RoslynPrivateVersion)' == ''">4.14.0-3.25275.7</RoslynPrivateVersion>
     <AvaloniaVersion Condition="'$(AvaloniaVersion)' == ''">11.3.8</AvaloniaVersion>
@@ -35,6 +37,7 @@
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="$(RoslynVersion)" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(RoslynVersion)" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="$(RoslynVersion)" />
+    <PackageVersion Include="Microsoft.CodeAnalysis" Version="$(RoslynVersion)" />
     <PackageVersion Include="Microsoft.CodeAnalysis.LanguageServer.Protocol" Version="$(RoslynPrivateVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="$(DotNetExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="$(DotNetExtensionsVersion)" />
