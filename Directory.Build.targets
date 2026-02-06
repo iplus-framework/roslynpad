@@ -35,4 +35,19 @@
       <_ComputedTargetFrameworkMoniker>$(Original_ComputedTargetFrameworkMoniker)</_ComputedTargetFrameworkMoniker>
     </PropertyGroup>
   </Target>
+  
+  <!-- 
+    Fix for building Windows projects on Non-Windows platforms.
+    To make this work, you must manually copy the 'Microsoft.WindowsDesktop.App.Ref' pack 
+    from a Windows machine (C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref)
+    to your Linux/Mac machine (typically ~/.dotnet/packs/Microsoft.WindowsDesktop.App.Ref).
+    
+    This PropertyGroup forces the RuntimeIdentifier to win-x64 and disables SelfContained 
+    deployment for WPF projects, fooling the compiler into using the reference assemblies 
+    without needing the actual Windows runtime implementation.
+  -->
+  <PropertyGroup Condition=" '$([System.OperatingSystem]::IsWindows())' == 'false' AND '$(UseWPF)' == 'true' ">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
 </Project>

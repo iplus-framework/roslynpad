@@ -1,12 +1,13 @@
 <Project>
   <PropertyGroup>
-    <IsAvaloniaUIProject>true</IsAvaloniaUIProject>
+    <IsAvaloniaUIProject Condition="$(MSBuildProjectName.Contains('Avalonia'))">true</IsAvaloniaUIProject>
   </PropertyGroup>
   <!-- iPlus settings and overrides -->
-  <Import Project="../iPlus/build/Avalonia.Version.props" />
+  <Import Project="../iPlus/build/Avalonia.Build.props" />
   <!-- End iPlus settings and overrides -->
 
   <PropertyGroup>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
     
     <!--

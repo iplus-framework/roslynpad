@@ -10,7 +10,7 @@
   </ItemGroup>
   
   <Target Name="GetLibReferences" AfterTargets="ResolveFrameworkReferences">
-    <MSBuild Projects="@(ProjectReference)" Targets="GetLibReferences">
+    <MSBuild Projects="@(ProjectReference->WithMetadataValue('Filename', 'RestoreHelper'))" Targets="GetLibReferences">
       <Output ItemName="LibReference" TaskParameter="TargetOutputs" /> 
     </MSBuild>
     <ItemGroup>
