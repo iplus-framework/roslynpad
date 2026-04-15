@@ -15,13 +15,18 @@
     We must manually correlate their version using the Git commit ID.
   -->
   <ItemGroup>
-    <PackageReference Include="MessagePack" Version="3.1.3" />
+    <PackageReference Include="MessagePack" Version="$(MessagePackVersion)" />
     <PackageReference Include="System.Text.Json" Version="$(DotNetExtensionsVersion)" />
     <PackageReference Include="Microsoft.CodeAnalysis.LanguageServer.Protocol" Version="$(RoslynPrivateVersion)" GeneratePathProperty="true" IncludeAssets="none" PrivateAssets="all" />
   </ItemGroup>
   <Target Name="GetLibReferences" Outputs="@(Reference)">
+    <PropertyGroup>
+      <_LspLibFolder Condition="Exists('$(PkgMicrosoft_CodeAnalysis_LanguageServer_Protocol)/lib/$(LtsTargetFramework)')">$(LtsTargetFramework)</_LspLibFolder>
+      <_LspLibFolder Condition="'$(_LspLibFolder)' == '' and Exists('$(PkgMicrosoft_CodeAnalysis_LanguageServer_Protocol)/lib/net8.0')">net8.0</_LspLibFolder>
+      <_LspLibFolder Condition="'$(_LspLibFolder)' == ''">netstandard2.0</_LspLibFolder>
+    </PropertyGroup>
     <ItemGroup>
-      <Reference Include="$(PkgMicrosoft_CodeAnalysis_LanguageServer_Protocol)/lib/$(LtsTargetFramework)/*.dll" />
+      <Reference Include="$(PkgMicrosoft_CodeAnalysis_LanguageServer_Protocol)/lib/$(_LspLibFolder)/*.dll" />
     </ItemGroup>
   </Target>
 </Project>

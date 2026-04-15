@@ -11,7 +11,7 @@
     <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
     
     <!--
-    <DefaultTargetFramework>net9.0</DefaultTargetFramework>
+    <DefaultTargetFramework>net10.0</DefaultTargetFramework>
     <LtsTargetFramework>net8.0</LtsTargetFramework>
     <EarliestSupportedTargetFramework>net8.0</EarliestSupportedTargetFramework>
     -->
@@ -20,7 +20,8 @@
     <LtsTargetFramework>$(AvaloniaBuildFramework)</LtsTargetFramework>
     <EarliestSupportedTargetFramework>$(AvaloniaBuildFramework)</EarliestSupportedTargetFramework>
     <!-- End iPlus settings and overrides -->
-    
+
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <UseWPF Condition=" $(MSBuildProjectName.Contains('Windows')) ">true</UseWPF>
     <TargetFramework Condition=" '$(UseWPF)' == 'true' ">$(LtsTargetFramework)-windows</TargetFramework>
     <TargetFramework Condition=" '$(TargetFramework)' == '' and '$(TargetFrameworks)' == '' ">$(DefaultTargetFramework)</TargetFramework>
@@ -29,7 +30,7 @@
     <Features>strict</Features>
     <Deterministic>True</Deterministic>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <Version>4.14.0</Version>
+    <Version>5.0.0</Version>
     <RoslynPadVersion>21.0.0</RoslynPadVersion>
     <ApplicationVersion>$(RoslynPadVersion.Replace('.', ''))</ApplicationVersion>
     <ApplicationDisplayVersion>$(RoslynPadVersion)</ApplicationDisplayVersion>

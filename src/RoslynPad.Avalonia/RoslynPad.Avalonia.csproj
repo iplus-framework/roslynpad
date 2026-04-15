@@ -8,12 +8,15 @@
     <ApplicationTitle>RoslynPad</ApplicationTitle>
     <ApplicationIcon>../RoslynPad/Resources/RoslynPad.ico</ApplicationIcon>
     <Version>$(RoslynPadVersion)</Version>
-    <TargetFramework Condition=" '$(IsMacBuild)' == 'true' ">$(DefaultTargetFramework)-macos</TargetFramework>
     <CopyRoslynPadRuntimeAssemblies>true</CopyRoslynPadRuntimeAssemblies>
     <SelfContained>false</SelfContained>
     <CreatePackage>false</CreatePackage>
     <LinkMode>None</LinkMode>
     <TrimMode>partial</TrimMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsMacBuild)' == 'true'">
+    <TargetFramework>$(DefaultTargetFramework)-macos</TargetFramework>
+    <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <!-- hack to force resizetizer to work outside of MAUI -->
   <PropertyGroup Condition=" '$(IsMacBuild)' == 'true' ">
@@ -48,7 +51,8 @@
   <!-- End iPlus settings and overrides -->
 
   <ItemGroup>
-    <ProjectReference Include="..\RoslynPad.Runtime\RoslynPad.Runtime.csproj" SetTargetFramework="TargetFramework=$(EarliestSupportedTargetFramework)" />
+    <ProjectReference Include="..\RoslynPad.Runtime\RoslynPad.Runtime.csproj"
+      SetTargetFramework="TargetFramework=$(EarliestSupportedTargetFramework)" />
     <ProjectReference Include="..\RoslynPad.Common.UI\RoslynPad.Common.UI.csproj" />
     <ProjectReference Include="..\RoslynPad.Editor.Avalonia\RoslynPad.Editor.Avalonia.csproj" />
   </ItemGroup>
@@ -58,6 +62,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\RoslynPad.Themes\Themes\*.json" Exclude="..\RoslynPad.Themes\Themes\vs2019*.json" />
+    <Content Include="..\RoslynPad.Themes\Themes\*.json"
+      Exclude="..\RoslynPad.Themes\Themes\vs2019*.json" />
   </ItemGroup>
 </Project>
