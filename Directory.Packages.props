@@ -12,24 +12,25 @@
     <DotNetExtensionsVersion Condition="'$(DotNetExtensionsVersion)' == ''">10.0.1</DotNetExtensionsVersion>
     <!-- Use CodeAnalysisVersion from iPlus when UseAvaloniaFork is True, otherwise use 5.0.0 -->
     <RoslynVersion Condition="'$(RoslynVersion)' == '' AND '$(UseAvaloniaFork)' == 'True'">$(CodeAnalysisVersion)</RoslynVersion>
-    <RoslynVersion Condition="'$(RoslynVersion)' == '' AND '$(UseAvaloniaFork)' != 'True'">5.0.0</RoslynVersion>
+    <RoslynVersion Condition="'$(RoslynVersion)' == '' AND '$(UseAvaloniaFork)' != 'True'">5.3.0</RoslynVersion>
     <!-- https://dev.azure.com/dnceng/public/_artifacts/feed/dotnet-tools/NuGet/Microsoft.CodeAnalysis.LanguageServer.Protocol/ -->
     <RoslynPrivateVersion Condition="'$(RoslynPrivateVersion)' == ''">5.0.0-2.25567.12</RoslynPrivateVersion>
-    <AvaloniaVersion Condition="'$(AvaloniaVersion)' == ''">12.0.0</AvaloniaVersion>
+    <AvaloniaVersion Condition="'$(AvaloniaVersion)' == ''">12.0.1</AvaloniaVersion>
     <NuGetVersion Condition="'$(NuGetVersion)' == ''">7.0.3</NuGetVersion>
     <MessagePackVersion>3.1.4</MessagePackVersion>
   </PropertyGroup>
   
   <ItemGroup Condition="'$(UseAvaloniaFork)' == 'False'">
     <PackageVersion Include="AvalonEdit" Version="6.3.1.120" />
-    <PackageVersion Include="Avalonia.AvaloniaEdit" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.AvaloniaEdit" Version="12.0.0" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="11.2.4" />
     <PackageVersion Include="AvalonLibrary" Version="4.0.1" />
     <PackageVersion Include="DialogHost.Avalonia" Version="0.12.0" />
-    <PackageVersion Include="Dirkster.AvalonDock" Version="4.72.1" />
-    <PackageVersion Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.72.1" />
+    <PackageVersion Include="Dirkster.AvalonDock" Version="4.73.0" />
+    <PackageVersion Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.73.0" />
     <PackageVersion Include="Dock.Avalonia" Version="12.0.0.1" />
     <PackageVersion Include="Dock.Model.Avalonia" Version="12.0.0.1" />
     <PackageVersion Include="Dock.Avalonia.Themes.Fluent" Version="12.0.0.1" />
@@ -51,7 +52,7 @@
     <PackageVersion Include="Microsoft.VisualStudio.Validation" Version="17.8.8" />
     <PackageVersion Include="Mono.Cecil" Version="0.11.6" />
     <PackageVersion Include="Nerdbank.Streams" Version="2.13.16" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="NuGet.Commands" Version="$(NuGetVersion)" />
     <PackageVersion Include="NuGet.Packaging" Version="$(NuGetVersion)" />
     <PackageVersion Include="NuGet.Protocol" Version="$(NuGetVersion)" />
@@ -59,6 +60,7 @@
     <PackageVersion Include="System.Linq.AsyncEnumerable" Version="$(DotNetExtensionsVersion)" />
     <PackageVersion Include="System.Reactive.Core" Version="6.1.0" />
     <PackageVersion Include="System.Reactive.Linq" Version="6.1.0" />
+    <PackageVersion Include="Tmds.DBus.Protocol" Version="0.92.0" />
     <PackageVersion Include="System.Reflection.MetadataLoadContext" Version="$(DotNetExtensionsVersion)" />
     <PackageVersion Include="System.Reflection.Metadata" Version="$(DotNetExtensionsVersion)" />
     <PackageVersion Include="System.Text.Json" Version="$(DotNetExtensionsVersion)" />

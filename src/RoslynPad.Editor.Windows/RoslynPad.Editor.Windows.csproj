@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>iPlus.RoslynPad.Editor.Windows</PackageId>
     <RootNamespace>RoslynPad.Editor</RootNamespace>
     <Description>Provides a Roslyn-based code editor using AvalonEdit (WPF platform) with completion, diagnostics, and quick actions</Description>
     <IsPackable>true</IsPackable>

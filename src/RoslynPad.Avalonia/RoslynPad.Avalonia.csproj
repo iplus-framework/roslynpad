@@ -35,6 +35,7 @@
     <PackageReference Include="Avalonia.Themes.Fluent" />
     <PackageReference Include="DialogHost.Avalonia" />
     <PackageReference Include="Dock.Avalonia" />
+    <PackageReference Include="Dock.Avalonia.Themes.Fluent" />
     <PackageReference Include="Dock.Model.Avalonia" />
   </ItemGroup>
   <ItemGroup>

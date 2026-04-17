@@ -39,10 +39,10 @@
     <AnalysisMode>Recommended</AnalysisMode>
     <IsPackable>false</IsPackable>
     <Authors>aelij;roslynpad</Authors>
-    <PackageProjectUrl>https://roslynpad.net</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/roslynpad/roslynpad</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/iplus-framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/iplus-framework/roslynpad</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>Roslyn;RoslynPad</PackageTags>
+    <PackageTags>iplus-framework;Roslyn;RoslynPad</PackageTags>
     <PackageIcon>RoslynPad.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

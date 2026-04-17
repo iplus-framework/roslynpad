@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>iPlus.RoslynPad.Roslyn</PackageId>
     <TargetFramework>$(LtsTargetFramework)</TargetFramework>
     <Description>Exposes many Roslyn editor services that are currently internal. The version of this package corresponds to the Roslyn packages.</Description>
     <IsPackable>true</IsPackable>

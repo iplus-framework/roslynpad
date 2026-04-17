@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>iPlus.RoslynPad.Themes</PackageId>
     <IsAvaloniaUIProject>false</IsAvaloniaUIProject>
     <TargetFramework>$(LtsTargetFramework)</TargetFramework>
     <IsPackable>true</IsPackable>
