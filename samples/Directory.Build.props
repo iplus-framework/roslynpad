@@ -1,5 +1,10 @@
 <Project>
+    <Import Project="../Directory.Build.props" />
     <PropertyGroup>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
     </PropertyGroup>
+    <!-- When using the Avalonia fork, reference fork assemblies directly for sample apps -->
+    <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="$(MSBuildThisFileDirectory)../../iPlus/build/AvaloniaInclude.props" />
+    <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="$(MSBuildThisFileDirectory)../../iPlus/build/AvaloniaEditInclude.props" />
+    <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="$(MSBuildThisFileDirectory)../../iPlus/build/AvaloniaBaseFreeDesktopInclude.props" />
 </Project>

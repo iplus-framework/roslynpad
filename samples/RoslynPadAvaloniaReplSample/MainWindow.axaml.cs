@@ -27,7 +27,9 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         AvaloniaXamlLoader.Load(this);
+#if !USE_AVALONIA_FORK
         this.AttachDevTools();
+#endif
 
         _documents = new ObservableCollection<DocumentViewModel>();
         var items = this.Get<ItemsControl>("Items");
